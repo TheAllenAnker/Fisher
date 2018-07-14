@@ -1,7 +1,6 @@
 # Author: Allen Anker
 # Created by Allen Anker on 14/07/2018
-from app.settings import PER_PAGE
-from http_request import HTTP
+from app.libs.http_request import HTTP
 from flask import current_app
 
 
