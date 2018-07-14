@@ -1,5 +1,8 @@
 # Author: Allen Anker
 # Created by Allen Anker on 14/07/2018
-from flask import Blueprint
+from . import web
 
-web = Blueprint('web', __name__)
+
+@web.route('/user')
+def login():
+    pass

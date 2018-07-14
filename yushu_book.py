@@ -23,5 +23,4 @@ class YuShuBook:
     def search_by_keyword(cls, keyword, count=15, start=0):
         url = cls.keyword_url.format(keyword, count, start)
         result = HTTP.get(url)
-        print(result)
         return result
