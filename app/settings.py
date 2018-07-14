@@ -2,4 +2,4 @@
 # Created by Allen Anker on 14/07/2018
 
 
-DEBUG = True
+PER_PAGE = 15
