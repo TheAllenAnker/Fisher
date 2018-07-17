@@ -1,6 +1,6 @@
 # Author: Allen Anker
 # Created by Allen Anker on 14/07/2018
-from flask import jsonify, request, flash
+from flask import jsonify, request, flash, render_template
 import json
 from app.view_models.book import BookViewModel, BookCollection
 from . import web
@@ -31,6 +31,11 @@ def search():
             yushu_book.search_by_keyword(q, page)
 
         books.fill(yushu_book, q)
-        return json.dumps(books, default=lambda o: o.__dict__)
     else:
-        return jsonify(form.errors)
+        flash('Format error, please input again.')
+    return render_template('search_result.html', books=books)
+
+
+@web.route('/book/<isbn>/detail')
+def book_detail(isbn):
+    pass
