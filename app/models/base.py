@@ -7,5 +7,6 @@ db = SQLAlchemy()
 
 
 class Base(db.Model):
-    create_time = Column('create_time', Integer)
+    __abstract__ = True
+    # create_time = Column('create_time', Integer)
     status = Column(SmallInteger, default=1)

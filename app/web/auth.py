@@ -1,4 +1,4 @@
-from flask import redirect
+from flask import redirect, render_template
 from flask import url_for
 from flask_login import login_required, logout_user
 from . import web
@@ -6,7 +6,7 @@ from . import web
 
 @web.route('/register', methods=['GET', 'POST'])
 def register():
-    pass
+    return render_template('auth/register.html', form={'data': {}})
 
 
 @web.route('/login', methods=['GET', 'POST'])
