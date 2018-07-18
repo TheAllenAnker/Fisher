@@ -29,6 +29,9 @@ class YuShuBook:
         self.__fill_collection(result)
         return result
 
+    def first(self):
+        return self.books[0] if self.total >= 1 else None
+
     @staticmethod
     def __calculate_start(page):
         return (page - 1) * current_app.config['PER_PAGE']
