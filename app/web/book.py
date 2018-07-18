@@ -1,7 +1,6 @@
 # Author: Allen Anker
 # Created by Allen Anker on 14/07/2018
 from flask import jsonify, request, flash, render_template
-import json
 from app.view_models.book import BookViewModel, BookCollection
 from . import web
 from app.libs.helper import is_isbn_or_key
