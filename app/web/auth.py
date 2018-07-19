@@ -1,12 +1,21 @@
 from flask import redirect, render_template
-from flask import url_for
+from flask import url_for, request
 from flask_login import login_required, logout_user
+from app.models.user import User
 from . import web
+from app.forms.auth import RegisterForm
+from app.models.base import db
 
 
 @web.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template('auth/register.html', form={'data': {}})
+    form = RegisterForm(request.form)
+    if request.method == 'POST' and form.validate():
+        user = User()
+        user.set_attrs(form.data)
+        db.session.add(user)
+        db.session.commit()
+    return render_template('auth/register.html', form=form)
 
 
 @web.route('/login', methods=['GET', 'POST'])

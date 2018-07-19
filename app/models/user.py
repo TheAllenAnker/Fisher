@@ -1,10 +1,13 @@
 # Author: Allen Anker
 # Created by Allen Anker on 18/07/2018
-from app.models.base import Base
+from app.models import Base
 from sqlalchemy import Column, Integer, String, Boolean, Float
+from werkzeug.security import generate_password_hash
 
 
 class User(Base):
+    __tablename__ = 'user'
+
     id = Column(Integer, primary_key=True)
     nickname = Column(String(24), nullable=False)
     phone_number = Column(String(18), unique=True)
@@ -15,3 +18,13 @@ class User(Base):
     receive_counter = Column(Integer, default=0)
     wx_open_id = Column(String(50))
     wx_name = Column(String(32))
+
+    _password = Column('password', String(100))
+
+    @property
+    def password(self):
+        return self._password
+
+    @password.setter
+    def password(self, raw):
+        self._password = generate_password_hash(raw)

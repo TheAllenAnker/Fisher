@@ -1,10 +1,12 @@
 # Author: Allen Anker
 # Created by Allen Anker on 14/07/2018
 from sqlalchemy import Column, Integer, String
-from app.models.base import db, Base
+from app.models import Base
 
 
 class Book(Base):
+    __tablename__ = 'book'
+
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(50), nullable=False)
     author = Column(String(20), default='Unknown')
