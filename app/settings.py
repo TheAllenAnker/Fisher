@@ -3,3 +3,5 @@
 
 
 PER_PAGE = 15
+
+BEANS_PER_UPLOAD = 0.5
